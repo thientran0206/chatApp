@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
+  
   private messages: Array<Message>;
   constructor(private http:HttpClient) {
     //this.messages = new Array<Message>();
@@ -27,7 +28,9 @@ export class ChatService {
       .subscribe(             
         (messages) => {                 
           this.messages = this.buildMessages(messages);                 
-          observer.next(this.messages);             
+          observer.next(this.messages);
+          console.log();
+                       
         },
         (error) => observer.error(error),             
         () => observer.complete()         
